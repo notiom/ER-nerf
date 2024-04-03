@@ -108,6 +108,17 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 ```bash
 python data_utils/process.py data/obama/obama.mp4
 ```
+### 测试
+```bash
+python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama/checkpoints/ngp.pth   # head
+python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ckpt trial_obama_torso/checkpoints/ngp.pth   # head+torso
+```
+
+测试结果为:
+| setting    | PSNR   | LPIPS  | LMD   |
+| ---------- | ------ | ------ | ----- |
+| head       | 35.607 | 0.0178 | 2.525 |
+| head+torso | 26.594 | 0.0446 | 2.550 |
 
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
