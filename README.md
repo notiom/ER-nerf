@@ -61,7 +61,7 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/data_util/face_tracking/3D
 ```
 3.下载01_MorphableModel.mat模型到data_utils/face_trackong/3DMM/目录
 ```bash
-
+wget https://github.com/notiom/ER-nerf/releases/download/mat/01_MorphableModel.mat
 ```
 在下载模型之后，运行
 ```bash
