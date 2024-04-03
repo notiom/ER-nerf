@@ -132,6 +132,7 @@ python data_utils/process.py data/obama/obama.mp4
 
 ```
 若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
+<br>
 5.重命名
 处理完成之后，把OpenFace处理出来的眨眼数据复制到当前目录，重新命名成au.csv，把原本的aud.npy重新命名成aud_ds.npy。
 ### 测试
