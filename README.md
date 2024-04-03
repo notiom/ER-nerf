@@ -103,6 +103,7 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
  <div align=center>
 <img src="/figs/fig3.png" height="400px" width="600px"/> 
 </div>
+
 3.生成其他的图片路径文件夹
 ```bash
 python data_utils/process.py data/obama/obama.mp4
