@@ -7,7 +7,7 @@
 git clone https://github.com/Fictionarry/ER-NeRF.git
 ```
 ### 安装依赖
-#1.it本项目源码
+1.it本项目源码
 ```bash
 git clone https://github.com/notiom/ER-nerf.git
 ```
@@ -40,10 +40,10 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 <br>
 提取码：1422</span>
 </div>
-
+<br>
 8.安装tensorflow-gpu
 ```bash
 pip install tensorflow-gpu==2.8.0
 ```
-```
+
 
