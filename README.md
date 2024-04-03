@@ -108,16 +108,38 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 ```bash
 python data_utils/process.py data/obama/obama.mp4
 ```
+其中task的作用为:
+--task 1  #分离音频
+
+--task 2  #生成aud_eo.npy
+
+--task 3  #把视频拆分成图像
+
+--task 4  #分割人像
+
+--task 5  #提取背景图像
+
+--task 6 #分割出身体部分
+
+--task 7 #获取人脸landmarks lms文件 
+
+--task 8 #获取人脸跟踪数据，这步要训练一个追踪模型，会很慢
+
+--task 9 #保存所有数据
+
 4.原始图片，此处我准备了一个ori_imgs
 ```bash
 
 ```
 若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
+5.重命名
+处理完成之后，把OpenFace处理出来的眨眼数据复制到当前目录，重新命名成au.csv，把原本的aud.npy重新命名成aud_ds.npy。
 ### 测试
 ```bash
 python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama/checkpoints/ngp.pth   # head
 python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ckpt trial_obama_torso/checkpoints/ngp.pth   # head+torso
 ```
+
 
 测试结果为:
 | setting    | PSNR   | LPIPS  | LMD   |
