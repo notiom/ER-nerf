@@ -108,6 +108,11 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 ```bash
 python data_utils/process.py data/obama/obama.mp4
 ```
+4.原始图片，此处我准备了一个ori_imgs
+```bash
+
+```
+若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
 ### 测试
 ```bash
 python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama/checkpoints/ngp.pth   # head
