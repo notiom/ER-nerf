@@ -114,7 +114,7 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 ```bash
 python data_utils/process.py data/obama/obama.mp4
 ```
-其中task的作用为:
+其中task的作用为:<br>
 --task 1  #分离音频
 
 --task 2  #生成aud_eo.npy
@@ -132,7 +132,7 @@ python data_utils/process.py data/obama/obama.mp4
 --task 8 #获取人脸跟踪数据，这步要训练一个追踪模型，会很慢
 
 --task 9 #保存所有数据
-<br>
+<br><br>
 5.重命名
 处理完成之后，把OpenFace处理出来的眨眼数据复制到当前目录，重新命名成au.csv，把原本的aud.npy重新命名成aud_ds.npy。
 ### 测试
