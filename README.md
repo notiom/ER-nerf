@@ -164,13 +164,11 @@ wget https://github.com/Fictionarry/ER-NeRF/releases/download/ckpt/checkpoints.z
 |         |--transfroms_train.json
 |         |--transfroms_val.json
 |--......
-|--......
 |--trial_obama/
 |    |--checkpoints/
 |          |--ngp_ep0017.pth
 |          |--ngp.pth
 |    |--log_ngp.txt
-|--......
 |--......
 |--trial_obama_torso/
 |    |--checkpoints/
@@ -180,6 +178,7 @@ wget https://github.com/Fictionarry/ER-NeRF/releases/download/ckpt/checkpoints.z
 |--......
 ```
 <br>
+
 ```bash
 python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama/checkpoints/ngp.pth   # head
 python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ckpt trial_obama_torso/checkpoints/ngp.pth   # head+torso
