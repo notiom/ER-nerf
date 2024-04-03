@@ -144,7 +144,7 @@ python data_utils/process.py data/obama/obama.mp4
 ```bash
 wget https://github.com/Fictionarry/ER-NeRF/releases/download/ckpt/checkpoints.zip
 ```
-将文件夹压缩->
+将文件夹压缩为trial_obama，trial_obama_torso
 <br>
 文件夹路径应为
 ```
@@ -178,7 +178,7 @@ wget https://github.com/Fictionarry/ER-NeRF/releases/download/ckpt/checkpoints.z
 |--......
 ```
 <br>
-
+全部运行完成之后，可以开始测试结果。
 ```bash
 python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama/checkpoints/ngp.pth   # head
 python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ckpt trial_obama_torso/checkpoints/ngp.pth   # head+torso
