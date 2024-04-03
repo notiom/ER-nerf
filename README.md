@@ -104,7 +104,7 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 <img src="/figs/fig3.png" height="400px" width="600px"/> 
 </div>
 
-3.原始图片，此处我准备了一个ori_imgs
+3.原始图片，此处我准备了一个ori_imgs(这一步可以省略，由process生成)
 ```bash
 
 ```
