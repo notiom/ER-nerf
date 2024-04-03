@@ -103,6 +103,10 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
  <div align=center>
 <img src="/figs/fig3.png" height="400px" width="600px"/> 
 </div>
+3.生成其他的图片路径文件夹
+```bash
+python data_utils/process.py data/obama/obama.mp4
+```
 
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
