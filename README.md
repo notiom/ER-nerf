@@ -195,12 +195,13 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ck
 ### 音频预处理
 原文使用 DeepSpeech特征进行评估
 在训练和测试--asr_model <deepspeech, esperanto, hubert>时指定音频特征的类型。
+<br>
 深度语音
 
 ```bash
 python data_utils/deepspeech_features/extract_ds_features.py --input data/<name>.wav # save to data/<name>.npy
 ```
-波形向量
+波形向量<br>
 尝试通过 Wav2Vec（如RAD-NeRF）提取音频特征：
 
 ```bash
