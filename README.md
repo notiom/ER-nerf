@@ -106,7 +106,7 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 
 3.原始图片，此处我准备了一个ori_imgs(这一步可以省略，由process生成)
 ```bash
-
+wget https://github.com/notiom/ER-nerf/releases/download/mat/ori_imgs.zip
 ```
 若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
 <br>
