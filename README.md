@@ -79,6 +79,30 @@ wget https://www.adrianbulat.com/downloads/python-fan/2DFAN4-cd938726ad.zip
 wget https://download.pytorch.org/models/alexnet-owt-7be5be79.pth
 ```
 
+### 数据集准备
+1.获取一个5分钟左右的视屏，这里获取奥巴马的视屏
+```bash
+mkdir -p data/obama
+wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw=true -O data/obama/obama.mp4
+```
+2.使用openface制作csv文件，openface推荐使用windows，openface网盘链接如下->
+<br>
+<a href = "https://pan.baidu.com/s/12MGt2mFpd6-zmiHL4BG0SQ">openface</a>
+<br>
+提取码为g105
+
+打开OpenFace目录下的OpenFaceOffline.exe
+ <div align=center>
+<img src="/figs/fig1.png" height="400px" width="600px"/> 
+</div>
+选择要获取眨眼数据的视频
+ <div align=center>
+<img src="/figs/fig2.png" height="400px" width="600px"/> 
+</div>
+运行完之后，在processed目录下就有与视频名相同的csv文件
+ <div align=center>
+<img src="/figs/fig3.png" height="400px" width="600px"/> 
+</div>
 
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
