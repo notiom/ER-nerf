@@ -154,6 +154,7 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ck
 
 ### 参考文档
 <a href = "https://blog.csdn.net/matt45m/article/details/133700108">数字人解决方案</a>
+<a href = "https://blog.csdn.net/matt45m/article/details/133110802?spm=1001.2014.3001.5501">更好的分割</a>
 
 ### 有其他问题，欢迎联系作者 
 ->邮箱
