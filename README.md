@@ -104,7 +104,13 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 <img src="/figs/fig3.png" height="400px" width="600px"/> 
 </div>
 
-3.生成其他的图片路径文件夹
+3.原始图片，此处我准备了一个ori_imgs
+```bash
+
+```
+若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
+<br>
+4.生成其他的图片路径文件夹
 ```bash
 python data_utils/process.py data/obama/obama.mp4
 ```
@@ -126,12 +132,6 @@ python data_utils/process.py data/obama/obama.mp4
 --task 8 #获取人脸跟踪数据，这步要训练一个追踪模型，会很慢
 
 --task 9 #保存所有数据
-
-4.原始图片，此处我准备了一个ori_imgs
-```bash
-
-```
-若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
 <br>
 5.重命名
 处理完成之后，把OpenFace处理出来的眨眼数据复制到当前目录，重新命名成au.csv，把原本的aud.npy重新命名成aud_ds.npy。
