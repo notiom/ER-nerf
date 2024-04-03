@@ -110,7 +110,11 @@ wget https://github.com/notiom/ER-nerf/releases/download/mat/ori_imgs.zip
 ```
 若想下载完整的数据集，可以去<a href ="https://tianchi.aliyun.com/dataset/155924">阿里云</a>找到rad-nerf-data.zip
 <br>
-4.生成其他的图片路径文件夹
+4.下载track_params.pt
+```bash
+wget https://github.com/notiom/ER-nerf/releases/download/mat/track_params.pt
+```
+5.生成其他的图片路径文件夹
 ```bash
 python data_utils/process.py data/obama/obama.mp4
 ```
@@ -136,6 +140,46 @@ python data_utils/process.py data/obama/obama.mp4
 5.重命名
 处理完成之后，把OpenFace处理出来的眨眼数据复制到当前目录，重新命名成au.csv，把原本的aud.npy重新命名成aud_ds.npy。
 ### 测试
+1.先下载检查点压缩文件
+```bash
+wget https://github.com/Fictionarry/ER-NeRF/releases/download/ckpt/checkpoints.zip
+```
+将文件夹压缩->
+<br>
+文件夹路径应为
+```
+|ER-nerf/
+|--data/
+|    |--obama
+|         |--gt_imgs/
+|         |--ori_imgs/
+|         |--parsing/
+|         |--toro_imgs/
+|         |--au.csv
+|         |--aud_ds.npy
+|         |--aud.wav
+|         |--bc.jpg
+|         |--obama.mp4
+|         |--track_params.pt
+|         |--transfroms_train.json
+|         |--transfroms_val.json
+|--......
+|--......
+|--trial_obama/
+|    |--checkpoints/
+|          |--ngp_ep0017.pth
+|          |--ngp.pth
+|    |--log_ngp.txt
+|--......
+|--......
+|--trial_obama_torso/
+|    |--checkpoints/
+|          |--ngp_ep0028.pth
+|          |--ngp.pth
+|--results/
+|--......
+```
+<br>
 ```bash
 python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama/checkpoints/ngp.pth   # head
 python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ckpt trial_obama_torso/checkpoints/ngp.pth   # head+torso
