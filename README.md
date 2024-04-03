@@ -193,6 +193,55 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ck
 | head       | 35.607 | 0.0178 | 2.525 |
 | head+torso | 26.594 | 0.0446 | 2.550 |
 
+### 音频预处理
+原文使用 DeepSpeech特征进行评估
+在训练和测试--asr_model <deepspeech, esperanto, hubert>时指定音频特征的类型。
+深度语音
+
+```bash
+python data_utils/deepspeech_features/extract_ds_features.py --input data/<name>.wav # save to data/<name>.npy
+```bash
+波形向量
+尝试通过 Wav2Vec（如RAD-NeRF）提取音频特征：
+
+```bash
+python data_utils/wav2vec.py --wav data/<name>.wav --save_feats # save to data/<name>_eo.npy
+```
+Hubert
+在我们的测试中，HuBERT 提取器对于更多语言表现更好，并且已经在GeneFace中使用。
+
+### Geneface的预训练模型
+
+```bash
+python data_utils/hubert.py --wav data/<name>.wav # save to data/<name>_hu.npy
+```bash
+
+### 训练
+
+```bash
+# train (head and lpips finetune, run in sequence)
+python main.py data/obama/ --workspace trial_obama/ -O --iters 100000
+python main.py data/obama/ --workspace trial_obama/ -O --iters 125000 --finetune_lips --patch_size 32
+
+# train (torso)
+# <head>.pth should be the latest checkpoint in trial_obama
+python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --head_ckpt <head>.pth --iters 200000
+```
+
+### 测试
+
+```bash
+python main.py data/obama/ --workspace trial_obama/ -O --test # only render the head and use GT image for torso
+python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test # render both head and torso
+```bash
+
+### 目标音频推理
+
+```bash
+# Adding "--smooth_path" may help decrease the jitter of the head, while being less accurate to the original pose.
+python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --test_train --aud <audio>.npy
+```bash
+
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
 
