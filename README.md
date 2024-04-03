@@ -186,7 +186,6 @@ python main.py data/obama/ --workspace trial_obama/ -O --test --ckpt trial_obama
 python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ckpt trial_obama_torso/checkpoints/ngp.pth   # head+torso
 ```
 
-
 测试结果为:
 | setting    | PSNR   | LPIPS  | LMD   |
 | ---------- | ------ | ------ | ----- |
@@ -200,7 +199,7 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ck
 
 ```bash
 python data_utils/deepspeech_features/extract_ds_features.py --input data/<name>.wav # save to data/<name>.npy
-```bash
+```
 波形向量
 尝试通过 Wav2Vec（如RAD-NeRF）提取音频特征：
 
@@ -214,7 +213,7 @@ Hubert
 
 ```bash
 python data_utils/hubert.py --wav data/<name>.wav # save to data/<name>_hu.npy
-```bash
+```
 
 ### 训练
 
@@ -233,14 +232,14 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --head_ckpt
 ```bash
 python main.py data/obama/ --workspace trial_obama/ -O --test # only render the head and use GT image for torso
 python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test # render both head and torso
-```bash
+```
 
 ### 目标音频推理
 
 ```bash
 # Adding "--smooth_path" may help decrease the jitter of the head, while being less accurate to the original pose.
 python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --test_train --aud <audio>.npy
-```bash
+```
 
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
