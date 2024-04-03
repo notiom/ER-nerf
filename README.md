@@ -69,6 +69,7 @@ cd data_utils/face_tracking
 python convert_BFM.py
 ```
 若网络下载缓慢，->模型链接<a href = "https://pan.baidu.com/s/1z83r_2r4_5tsHDbC0ZlWeA">百度网盘下载链接</a>
+<br>
 4.这一步可以省略，因为在代码运行过程中也会自动下载，但是在运行时下载会很慢，建议下载
 ```bash
 cd .cache/torch/hub/checkpoints
