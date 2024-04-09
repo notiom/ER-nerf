@@ -242,14 +242,14 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --head_ckpt
 ### 测试
 
 ```bash
-python main.py data/obama/ --workspace trial_obama/ -O --test # only render the head and use GT image for torso
-python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test # render both head and torso
+python main.py data/obama/ --workspace trial_obama/ -O --test # 只渲染头部，并使用GT图像来呈现躯干
+python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test # 渲染头部和躯干
 ```
 
 ### 目标音频推理
 
 ```bash
-# Adding "--smooth_path" may help decrease the jitter of the head, while being less accurate to the original pose.
+# 添加“--smooth_path”可能有助于减少头部的抖动，但可能会减少对原始姿势的准确性。
 python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --test_train --aud <audio>.npy
 ```
 
