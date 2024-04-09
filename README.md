@@ -197,8 +197,8 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --test --torso --ck
 | head       | 35.607 | 0.0178 | 2.525 |
 | head+torso | 26.594 | 0.0446 | 2.550 |
 
---模型训练输入:一段mp4视频，包含原有的语音
---模型预测输入:原有的视频 + 一段新的wav语音
+--模型训练输入:一段mp4视频，包含原有的语音<br>
+--模型预测输入:原有的视频 + 一段新的wav语音<br>
 --模型输出:合成出的新视频
 
 ### 音频预处理
