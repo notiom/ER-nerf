@@ -228,12 +228,14 @@ python data_utils/hubert.py --wav data/<name>.wav # save to data/<name>_hu.npy
 ### 训练
 
 ```bash
-# train (head and lpips finetune, run in sequence)
+# 头部训练
 python main.py data/obama/ --workspace trial_obama/ -O --iters 100000
+# 微调嘴型动作
+# 训练结束后会保存一个权重文件，用于下一步训练身体时使用
 python main.py data/obama/ --workspace trial_obama/ -O --iters 125000 --finetune_lips --patch_size 32
 
-# train (torso)
-# <head>.pth should be the latest checkpoint in trial_obama
+# 训练身体
+# 训练身体时，导入上一步生成的头部模型
 python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --head_ckpt <head>.pth --iters 200000
 ```
 
