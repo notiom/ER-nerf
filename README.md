@@ -25,7 +25,7 @@ conda install cudatoolkit=11.3 -c pytorch
 ```
 5.使用pip安装torch1.12.1+cu113
 ```bash
-pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra -index-url https://download.pytorch.org/whl/cu113
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 ```
 6.安装其他依赖
 ```bash
