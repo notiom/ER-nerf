@@ -106,7 +106,7 @@ wget https://github.com/YudongGuo/AD-NeRF/blob/master/dataset/vids/Obama.mp4?raw
 此处我已经生成完毕。运行以下命令获得csv文件。
 
 ```bash
-https://github.com/notiom/ER-nerf/releases/download/mat/obama.csv
+wget https://github.com/notiom/ER-nerf/releases/download/mat/obama.csv
 ```
 
 3.原始图片，此处我准备了一个ori_imgs(这一步可以省略，由process生成)
