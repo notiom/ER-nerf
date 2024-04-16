@@ -39,8 +39,6 @@ pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.co
 <br>
 提取码：1422
 <br>
-若报g++版本问题，运行
-
 
 8.安装tensorflow-gpu
 ```bash
@@ -255,7 +253,18 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --te
 
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
+2.若报g++版本问题，运行
 
+```bash
+conda install 'gxx[version=">=5,<10.2.1"]'
+```
+3.报错cuda问题，设置环境变量，在.bashrc下设置
+```bash
+export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64
+export PATH=/usr/local/cuda-11.7/bin:$PATH
+export CUDA_HOME=/usr/local/cuda-11.7
+```
+4.报错4090和3090运行process第8步时的生成错误->(待更新)
 
 ### 参考文档
 <a href = "https://blog.csdn.net/matt45m/article/details/133700108">数字人解决方案</a>
