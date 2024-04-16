@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ```
 7.安装pytorch3d
 ```bash
-pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py38_cu113_pyt1110/download.html"
 ```
 下载pytorch3d源码,如果下载不，按上面的百度网盘下载：链接：<a href = "https://pan.baidu.com/s/1xPFo-MQPWzkDMpLHhaloCQ">pytorch3d</a>
 <br>
