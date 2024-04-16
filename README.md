@@ -253,6 +253,7 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --te
 
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
+<br>
 2.若报g++版本问题，运行
 
 ```bash
