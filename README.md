@@ -266,6 +266,10 @@ export PATH=/usr/local/cuda-11.7/bin:$PATH
 export CUDA_HOME=/usr/local/cuda-11.7
 ```
 4.报错4090和3090运行process第8步时的生成错误->(待更新)
+5.ffmeg报错
+```bash
+conda install ffmpeg
+```
 
 ### 参考文档
 <a href = "https://blog.csdn.net/matt45m/article/details/133700108">数字人解决方案</a>
