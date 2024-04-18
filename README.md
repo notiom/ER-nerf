@@ -265,7 +265,9 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64
 export PATH=/usr/local/cuda-11.7/bin:$PATH
 export CUDA_HOME=/usr/local/cuda-11.7
 ```
-4.报错4090和3090运行process第8步时的生成错误->(待更新)
+4.运行process第8步时的生成错误:nvrtc: error: invalid value for --gpu-architecture (-arch)<br>
+解决方案，新建一个新的环境用于生成track_params.pt，报错原因为显卡可能为4090，版本太高，不兼容cuda<br>
+测试安装torch==2.1.1+cu118 torchvision==0.16.1+cu118 pytorch3d==0.7.5可以正常运行
 <br>
 5.ffmeg报错
 ```bash
