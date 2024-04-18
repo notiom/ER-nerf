@@ -2,7 +2,7 @@
 主要写er-nerf从零到一所有部署过程
 
 ### 原github链接 
-<a href = "https://github.com/Fictionarry/ER-NeRF">https://github.com/Fictionarry/ER-NeRF</a><br>如有需要，请运行命令->
+<a href = "https://github.com/Fictionarry/ER-NeRF">https://github.com/Fictionarry/ER-NeRF target="_blank</a><br>如有需要，请运行命令->
 ```bash
 git clone https://github.com/Fictionarry/ER-NeRF.git
 ```
