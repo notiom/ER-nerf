@@ -251,6 +251,18 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test # �
 python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --test_train --aud <audio>.npy
 ```
 
+### Web-UI
+
+```bash
+# 用于训练(开发中......)
+python ui/run.py --is_train
+```
+
+```bash
+# 用于推理
+python ui/run.py
+```
+
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
 <br>
