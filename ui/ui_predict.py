@@ -268,9 +268,9 @@ def genefacepp_demo(audio_path_wav = '/home/yanxl/Aigc/ER-nerf/data/test_audio/f
                         with gr.Column(variant='panel'):
                             ckpt_info_box = gr.Textbox(value="Please select \"datasets\" and \"workspace\" under the checkpoint folder ", interactive=False, visible=True, show_label=False)
                                          
-                            path = gr.FileExplorer(glob = "/**",value='/home/yanxl/Aigc/ER-nerf/data/fengzhi', file_count='multiple', root_dir = '/home/yanxl/Aigc/ER-nerf/data/',label='data path directory',interactive=True)
-                            workspace = gr.FileExplorer(glob = "/**",value='/home/yanxl/Aigc/ER-nerf/Myworkspace/trial_torso_fengzhi/', file_count='multiple',root_dir = '/home/yanxl/Aigc/ER-nerf/Myworkspace/', label='torso model ckpt path or directory',interactive=True)
-                                       
+                            path = gr.FileExplorer(glob = "/**", ignore_glob= "/*.*",file_count='multiple', root_dir = '/home/yanxl/Aigc/ER-nerf/data/',label='data path directory',interactive=True)
+                            workspace = gr.FileExplorer(glob = "/**", ignore_glob= "/*.*", file_count='multiple',root_dir = '/home/yanxl/Aigc/ER-nerf/Myworkspace/', label='torso model ckpt path or directory',interactive=True)
+                                  
             with gr.Column(variant='panel'): 
                 with gr.Tabs(elem_id="checkbox"):
                     with gr.TabItem('Parameters Settings'):
