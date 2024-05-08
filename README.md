@@ -254,7 +254,7 @@ python main.py data/obama/ --workspace trial_obama_torso/ -O --torso --test --te
 ### Web-UI
 
 ```bash
-# 用于训练(开发中......)
+# 用于训练
 python ui/run.py --is_train
 ```
 
