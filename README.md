@@ -263,6 +263,11 @@ python ui/run.py --is_train
 python ui/run.py
 ```
 
+展示图如下所示
+ <div align=center>
+<img src="/figs/fig4.png" height="400px" width="600px"/> 
+</div>
+
 ### 其他问题解决
 1.若报错 libopenh264.so.5的问题，则将conda环境下的lib文件夹下的libopenh264.so改名为libopenh264.so.5
 <br>
