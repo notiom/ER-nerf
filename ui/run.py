@@ -1,8 +1,8 @@
 import argparse
 import sys
 sys.path.append('/home/yanxl/Aigc/ER-nerf')
-from ui.ui_predict import genefacepp_demo
-from ui.ui_train import *
+from ui.ui_predict import ernerf_demo_infer
+from ui.ui_train import ernerf_demo_train
 
 if(__name__ == '__main__'):
     parser = argparse.ArgumentParser()
@@ -12,8 +12,8 @@ if(__name__ == '__main__'):
     args = parser.parse_args()
     demo = None
     if(args.is_train):
-        pass
+        demo = ernerf_demo_train()
     else:
-        demo = genefacepp_demo()
+        demo = ernerf_demo_infer()
     demo.queue()
     demo.launch(server_name=args.server, server_port=args.port)
