@@ -12,27 +12,6 @@ try:
     torch.backends.cudnn.allow_tf32 = False
 except AttributeError as e:
     print('Info. This pytorch version is not support with tf32.')
-    
-class AttrDict(dict):
-    def __getattr__(self, key):
-        try:
-            # 尝试将键转换为字符串，以支持数字键
-            key = str(key) if isinstance(key, int) else key
-            return self[key]
-        except KeyError:
-            raise AttributeError(f"'AttrDict' object has no attribute '{key}'")
-
-    def __setattr__(self, key, value):
-        # 将键转换为字符串，以支持数字键
-        key = str(key) if isinstance(key, int) else key
-        self[key] = value
-
-def dict_to_attrdict(d):
-    attr_dict = AttrDict()
-    for key, value in d.items():
-        # 将所有键转换为字符串，以支持数字键
-        attr_dict[str(key)] = value
-    return attr_dict
 
 class MyPredict(object):
     def __init__(self):
@@ -163,7 +142,7 @@ class MyPredict(object):
                 #说明路径不存在，报错
                 print(f"找不到音频npy文件路径 {self.opt['aud']}")
                 raise FileNotFoundError
-            self.opt = dict_to_attrdict(self.opt)
+            self.opt = argparse.Namespace(**self.opt)
             try:
                 self.run()                   
             except Exception as e:
@@ -246,13 +225,12 @@ class MyPredict(object):
         if test_loader.has_gt:
             trainer.evaluate(test_loader)
     
-def genefacepp_demo(audio_path_wav = '/home/yanxl/Aigc/ER-nerf/data/test_audio/fengzhi/fengzhi.wav',
-                    audio_path_npy = '/home/yanxl/Aigc/ER-nerf/data/test_audio/fengzhi/fengzhi_deepspeech.npy'):
+def ernerf_demo_infer():
     sep_line = "-" * 40
     infer_obj = MyPredict()
     print(sep_line)
     with gr.Blocks(analytics_enabled=False) as ernerf_interface:
-        gr.Markdown("<div align='center'> <h2> ER-NERF: Efficient Region-Aware Neural Radiance Fields for High-Fidelity Talking Portrait Synthesis </span> </h2> </div>")     
+        gr.Markdown("<div align='center'> <h2> ER-NERF: infer </span> </h2> </div>")     
         
         with gr.Row():
             with gr.Column(variant='panel'):
@@ -260,8 +238,8 @@ def genefacepp_demo(audio_path_wav = '/home/yanxl/Aigc/ER-nerf/data/test_audio/f
                     with gr.TabItem('Upload audio'):
                         with gr.Column(variant='panel'):
                             #从本上传要推理的音频
-                            asr_wav = gr.FileExplorer(glob="/**/*.wav",value=audio_path_wav, file_count='single', root_dir = '/home/yanxl/Aigc/ER-nerf/data/test_audio/',label='load .wav file to predict',interactive=True)
-                            aud = gr.FileExplorer(glob="/**/*.npy",value=audio_path_npy, file_count='single',root_dir = '/home/yanxl/Aigc/ER-nerf/data/test_audio/', label='load .npy file to predict',interactive=True)
+                            asr_wav = gr.FileExplorer(glob="/**/*.wav", file_count='single', root_dir = '/home/yanxl/Aigc/ER-nerf/data/test_audio/',label='load .wav file to predict',interactive=True)
+                            aud = gr.FileExplorer(glob="/**/*.npy", file_count='single',root_dir = '/home/yanxl/Aigc/ER-nerf/data/test_audio/', label='load .npy file to predict',interactive=True)
 
                 with gr.Tabs(elem_id="checkbox"):
                     with gr.TabItem('path'):
@@ -270,7 +248,7 @@ def genefacepp_demo(audio_path_wav = '/home/yanxl/Aigc/ER-nerf/data/test_audio/f
                                          
                             path = gr.FileExplorer(glob = "/**", ignore_glob= "/*.*",file_count='multiple', root_dir = '/home/yanxl/Aigc/ER-nerf/data/',label='data path directory',interactive=True)
                             workspace = gr.FileExplorer(glob = "/**", ignore_glob= "/*.*", file_count='multiple',root_dir = '/home/yanxl/Aigc/ER-nerf/Myworkspace/', label='torso model ckpt path or directory',interactive=True)
-                                  
+                                       
             with gr.Column(variant='panel'): 
                 with gr.Tabs(elem_id="checkbox"):
                     with gr.TabItem('Parameters Settings'):
@@ -343,6 +321,6 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=None) 
     parser.add_argument("--server", type=str, default='127.0.0.1') 
     args = parser.parse_args()
-    demo = genefacepp_demo()
+    demo = ernerf_demo_infer()
     demo.queue()
     demo.launch(server_name=args.server, server_port=args.port)
