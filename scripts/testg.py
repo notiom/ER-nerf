@@ -1,0 +1,13 @@
+
+from argparse import Namespace
+
+cuowu =    Namespace(path='/home/yanxl/Aigc/ER-nerf/data/shangnan', O=True, test=False, test_train=False, data_range=[0, -1], workspace='/home/yanxl/Aigc/ER-nerf/Myworkspace/trial_shangnan', seed=0, iters=100000, lr=0.01, lr_net=0.001, ckpt='latest', num_rays=65536, cuda_ray=True, max_steps=16, num_steps=16, upsample_steps=0, update_extra_interval=16, max_ray_batch=4096, warmup_step=10000, amb_aud_loss=1, amb_eye_loss=1, unc_loss=1, lambda_amb=0.0001, fp16=True, bg_img='', fbg=False, exp_eye=True, fix_eye=-1, smooth_eye=False, torso_shrink=0.8, color_space='srgb', preload=0, bound=1, scale=4, offset=[0, 0, 0], dt_gamma=0.00390625, min_near=0.05, density_thresh=10, density_thresh_torso=0.01, patch_size=1, init_lips=False, finetune_lips=False, smooth_lips=False, torso=False, head_ckpt='', gui=False, W=450, H=450, radius=3.35, fovy=21.24, max_spp=1, att=2, aud='', emb=False, ind_dim=4, ind_num=10000, ind_dim_torso=8, amb_dim=2, part=False, part2=False, train_camera=False, smooth_path=False, smooth_path_window=7, asr=False, asr_wav='', asr_play=False, asr_model='deepspeech', asr_save_feats=False, fps=50, l=10, m=50, r=10)
+
+zhengque = Namespace(path='/home/yanxl/Aigc/ER-nerf/data/shangnan', O=True, test=False, test_train=False, data_range=[0, -1], workspace='/home/yanxl/Aigc/ER-nerf/Myworkspace/trial_shangnan', seed=0, iters=100000, lr=0.01, lr_net=0.001, ckpt='latest', num_rays=65536, cuda_ray=True, max_steps=16, num_steps=16, upsample_steps=0, update_extra_interval=16, max_ray_batch=4096, warmup_step=10000, amb_aud_loss=1, amb_eye_loss=1, unc_loss=1, lambda_amb=0.0001, fp16=True, bg_img='', fbg=False, exp_eye=True, fix_eye=-1, smooth_eye=False, torso_shrink=0.8, color_space='srgb', preload=0, bound=1, scale=4, offset=[0, 0, 0], dt_gamma=0.00390625, min_near=0.05, density_thresh=10, density_thresh_torso=0.01, patch_size=1, init_lips=False, finetune_lips=False, smooth_lips=False, torso=False, head_ckpt='', gui=False, W=450, H=450, radius=3.35, fovy=21.24, max_spp=1, att=2, aud='', emb=False, ind_dim=4, ind_num=10000, ind_dim_torso=8, amb_dim=2, part=False, part2=False, train_camera=False, smooth_path=False, smooth_path_window=7, asr=False, asr_wav='', asr_play=False, asr_model='deepspeech', asr_save_feats=False, fps=50, l=10, m=50, r=10)
+
+# 比较两个 Namespace 对象
+same = vars(cuowu) == vars(zhengque)  # True，因为它们有相同的属性和值
+diff = vars(cuowu) == vars(zhengque)  # False，因为它们的属性值不同
+
+print("namespace1 和 namespace2 是否相同:", same)
+print("namespace1 和 namespace3 是否相同:", diff)

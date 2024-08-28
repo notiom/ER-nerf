@@ -1,0 +1,46 @@
+#视频处理
+python scripts/cuthead.py <path>
+
+conda activate genpt
+python data_utils/process.py <mp4> --task 1
+python data_utils/process.py <mp4> --task 2
+
+conda activate ernerf
+python data_utils/process.py <mp4>
+
+conda activate genpt
+python data_utils/process.py <mp4> --task 8
+
+conda activate ernerf
+python data_utils/process.py <mp4> --task 9
+
+
+#训练
+python main.py /home/yanxl/Aigc/ER-nerf/data/shangnan/deepspeech --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_shangnan -O --iters 1000000 --smooth_path
+
+python main.py /home/yanxl/Aigc/ER-nerf/data/shangnan --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_shangnan -O --iters 125000 --finetune_lips --patch_size 32
+
+python main.py /home/yanxl/Aigc/ER-nerf/data/shangnan --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_torso_shangnan -O --torso --head_ckpt /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_shangnan/checkpoints/ngp.pth --iters 400000
+
+#音频推理
+python main.py /home/yanxl/Aigc/ER-nerf/data/shangnan/deepspeech --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_torso_shangnan -O --torso --test --test_train --aud /home/yanxl/Aigc/ER-nerf/data/test_audio/shangnan/shangnan_deepspeech.npy
+
+python scripts/adddudio.py --video --wav
+
+/home/yanxl/.cache/huggingface/hub
+
+
+今后计划:
+1.加大训练量，研究每个参数的对结果的影响
+2.三种提取语音特征的方式，目前再试hubert（文中说这个最好）
+3.对推理结果做平滑处理。
+4.加清晰化模块
+5.将头贴到身体上ernerf  -- debug
+
+如果要使用hubert训练，需要指定参数asr_model
+
+python main.py /home/yanxl/Aigc/ER-nerf/data/shangnan/hubert --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_torso_shangnan_hubert -O --torso --head_ckpt /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_shangnan_hubert/checkpoints/ngp.pth --iters 100000 --asr_model hubert
+python main.py /home/yanxl/Aigc/ER-nerf/data/fengzhi_head --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_torso_fengzhi -O --torso --test --test_train --aud /home/yanxl/Aigc/ER-nerf/data/test_audio/fengzhi/fengzhi.npy
+
+
+python main.py /home/yanxl/Aigc/ER-nerf/data/shangnan/hubert --workspace /home/yanxl/Aigc/ER-nerf/Myworkspace/trial_torso_shangnan_hubert -O --torso --test --test_train --aud /home/yanxl/Aigc/ER-nerf/data/test_audio/shangnan/shangnan_hu.npy  --asr_model hubert
